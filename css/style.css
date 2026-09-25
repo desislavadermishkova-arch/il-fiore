@@ -160,7 +160,7 @@ p.lede { font-size: 19px; color: #4a463f; max-width: 60ch; }
 }
 .hero-slide.active { opacity: 1; }
 
-@media (max-width: 860px) {
+@media (max-width: 700px) {
   .hero { flex-direction: column; min-height: auto; }
   .hero-info { width: 100%; padding: 32px 24px; }
   .hero-image { flex: none; height: 55vh; width: 100%; }
