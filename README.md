@@ -13,16 +13,31 @@ A simple static site for an artist's painting portfolio: home, shop, about, and 
 
 ## Adding your paintings
 
-Each painting is currently a colored placeholder (`<div class="placeholder-art hue-N">`). To swap in a real image:
+The 9 paintings currently on the site are low-resolution crops (360×480px) taken from a Facebook preview image, used as realistic-looking interim content. Swap them out for full-resolution originals when you have them — the current ones will look soft, especially in the full-bleed homepage hero.
 
-1. Add your image files somewhere like `assets/works/your-painting.jpg`.
-2. Replace the placeholder div's contents with an `<img>` tag, e.g.:
-   ```html
-   <div class="placeholder-art">
-     <img src="assets/works/your-painting.jpg" alt="Untitled No. 1, oil on canvas">
-   </div>
+Each work card uses a `<picture>` element serving WebP with a JPEG fallback:
+
+```html
+<div class="placeholder-art">
+  <picture>
+    <source srcset="assets/works/your-painting.webp" type="image/webp">
+    <img src="assets/works/your-painting.jpg" alt="Description of the painting" loading="lazy">
+  </picture>
+</div>
+```
+
+To add a new real painting:
+
+1. Save the full-resolution image as `assets/works/your-painting.jpg`.
+2. Generate a WebP copy alongside it (smaller file size, same quality) — e.g. with Pillow:
+   ```python
+   from PIL import Image
+   im = Image.open("assets/works/your-painting.jpg")
+   im.save("assets/works/your-painting.webp", "WEBP", quality=80, method=6)
    ```
-3. Update the `data-title`, `data-sub`, and `data-desc` attributes on the parent `.work-card` so the lightbox shows the right info.
+   Also re-save the JPEG with `quality=80, optimize=True, progressive=True` if it came straight from a camera/phone — originals are often several MB and don't need to be.
+3. Update the `<picture>` markup, `data-title`, `data-sub`, and `data-desc` attributes on the parent `.work-card`.
+4. If it's one of the homepage hero slides, update the `data-bg` (or `style="background-image"` for the first slide) in `index.html` to point at the new `.webp` file.
 
 ## Personalizing
 

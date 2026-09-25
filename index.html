@@ -19,6 +19,7 @@
 <meta name="twitter:description" content="Original watercolour paintings — botanical and floral studies exploring colour, gesture, and detail.">
 <meta name="twitter:image" content="https://desislavadermishkova-arch.github.io/il-fiore/assets/works/floral-02.jpg">
 
+<link rel="preload" as="image" href="assets/works/floral-01.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -59,15 +60,15 @@
 
 <section class="hero" id="hero">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('assets/works/floral-01.jpg')" data-title="Floral Study I" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-02.jpg')" data-title="Floral Study II" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-03.jpg')" data-title="Floral Study III" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-04.jpg')" data-title="Floral Study IV" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-05.jpg')" data-title="Floral Study V" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-06.jpg')" data-title="Floral Study VI" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-07.jpg')" data-title="Floral Study VII" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-08.jpg')" data-title="Floral Study VIII" data-sub="Watercolour on paper, 2026"></div>
-    <div class="hero-slide" style="background-image:url('assets/works/floral-09.jpg')" data-title="Floral Study IX" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide active" style="background-image:url('assets/works/floral-01.webp')" data-title="Floral Study I" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-02.webp" data-title="Floral Study II" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-03.webp" data-title="Floral Study III" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-04.webp" data-title="Floral Study IV" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-05.webp" data-title="Floral Study V" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-06.webp" data-title="Floral Study VI" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-07.webp" data-title="Floral Study VII" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-08.webp" data-title="Floral Study VIII" data-sub="Watercolour on paper, 2026"></div>
+    <div class="hero-slide" data-bg="assets/works/floral-09.webp" data-title="Floral Study IX" data-sub="Watercolour on paper, 2026"></div>
   </div>
   <div class="hero-overlay"></div>
 
@@ -95,7 +96,10 @@
 
     <div class="work-grid">
       <article class="work-card" data-work data-title="Floral Study I" data-sub="Watercolour on paper, 2026" data-desc="Layered watercolour and fine pen line work — part of an ongoing series of floral studies.">
-        <div class="placeholder-art"><img src="assets/works/floral-01.jpg" alt="Watercolour painting of pink and red tulips by Il Fiore" loading="lazy"></div>
+        <div class="placeholder-art"><picture>
+          <source srcset="assets/works/floral-01.webp" type="image/webp">
+          <img src="assets/works/floral-01.jpg" alt="Watercolour painting of pink and red tulips by Il Fiore" loading="lazy">
+        </picture></div>
         <div class="work-meta">
           <div class="work-title">Floral Study I</div>
           <div class="work-sub">Watercolour on paper, 2026</div>
@@ -104,7 +108,10 @@
       </article>
 
       <article class="work-card" data-work data-title="Floral Study II" data-sub="Watercolour on paper, 2026" data-desc="A dense, layered bouquet in warm reds and oranges, built up with fine pen detail over watercolour washes.">
-        <div class="placeholder-art"><img src="assets/works/floral-02.jpg" alt="Watercolour painting of a red and orange bouquet by Il Fiore" loading="lazy"></div>
+        <div class="placeholder-art"><picture>
+          <source srcset="assets/works/floral-02.webp" type="image/webp">
+          <img src="assets/works/floral-02.jpg" alt="Watercolour painting of a red and orange bouquet by Il Fiore" loading="lazy">
+        </picture></div>
         <div class="work-meta">
           <div class="work-title">Floral Study II</div>
           <div class="work-sub">Watercolour on paper, 2026</div>
@@ -113,7 +120,10 @@
       </article>
 
       <article class="work-card" data-work data-title="Floral Study III" data-sub="Watercolour on paper, 2026" data-desc="Soft lilac and lavender blooms rendered in delicate line work over layered washes.">
-        <div class="placeholder-art"><img src="assets/works/floral-03.jpg" alt="Watercolour painting of purple and lilac flowers by Il Fiore" loading="lazy"></div>
+        <div class="placeholder-art"><picture>
+          <source srcset="assets/works/floral-03.webp" type="image/webp">
+          <img src="assets/works/floral-03.jpg" alt="Watercolour painting of purple and lilac flowers by Il Fiore" loading="lazy">
+        </picture></div>
         <div class="work-meta">
           <div class="work-title">Floral Study III</div>
           <div class="work-sub">Watercolour on paper, 2026</div>

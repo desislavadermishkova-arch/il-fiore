@@ -17,10 +17,20 @@ if (hero) {
     slides[index].classList.remove('active');
     index = (i + slides.length) % slides.length;
     const slide = slides[index];
+    if (slide.dataset.bg) {
+      slide.style.backgroundImage = `url('${slide.dataset.bg}')`;
+      delete slide.dataset.bg;
+    }
     slide.classList.add('active');
     if (titleEl) titleEl.textContent = slide.dataset.title || '';
     if (subEl) subEl.textContent = slide.dataset.sub || '';
     if (counterEl) counterEl.textContent = pad(index);
+
+    // Warm the cache for the next slide so its crossfade never shows blank
+    const nextSlide = slides[(index + 1) % slides.length];
+    if (nextSlide.dataset.bg) {
+      new Image().src = nextSlide.dataset.bg;
+    }
   }
 
   function restartAutoplay() {
