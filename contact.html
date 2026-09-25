@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact — Il Fiore</title>
+<meta name="description" content="Get in touch with Il Fiore for inquiries, commissions, or studio visits.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Il <span>Fiore</span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Get in Touch</span>
+    <h1>Contact</h1>
+    <p class="lede" style="margin-top:16px;">For inquiries about available paintings, commissions, or studio visits — send a message below.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container contact-grid">
+    <div>
+      <form data-local-only>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Send Message</button>
+      </form>
+      <p class="form-success">Thank you for your message — I'll get back to you soon.</p>
+      <p class="form-note">Note: this form doesn't send email yet — connect it to a service like Formspree, Netlify Forms, or your own inbox before launch.</p>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom: 24px;">Details</h3>
+      <ul class="contact-info">
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:hello@ilfiore.example">hello@ilfiore.example</a>
+        </li>
+        <li>
+          <span class="label">Studio</span>
+          [Add your city / studio location]
+        </li>
+        <li>
+          <span class="label">Social</span>
+          <a href="#">Instagram</a>
+        </li>
+        <li>
+          <span class="label">Availability</span>
+          By appointment
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Il Fiore</div>
+        <p class="footer-tagline">Original paintings exploring colour, gesture, and the quiet life of flowers.</p>
+        <div class="social-row">
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Commissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@ilfiore.example">hello@ilfiore.example</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Il Fiore. All rights reserved.</span>
+      <span>Site by you, built with Claude Code</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
