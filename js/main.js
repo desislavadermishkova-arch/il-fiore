@@ -1,3 +1,39 @@
+// Hero image carousel
+const hero = document.querySelector('#hero');
+if (hero) {
+  const slides = Array.from(hero.querySelectorAll('.hero-slide'));
+  const titleEl = hero.querySelector('.hero-title');
+  const subEl = hero.querySelector('.hero-sub-text');
+  const counterEl = hero.querySelector('.hero-counter-current');
+  const totalEl = hero.querySelector('.hero-counter-total');
+  let index = slides.findIndex(s => s.classList.contains('active'));
+  if (index < 0) index = 0;
+  let timer;
+
+  const pad = n => String(n + 1).padStart(2, '0');
+  if (totalEl) totalEl.textContent = pad(slides.length - 1);
+
+  function show(i) {
+    slides[index].classList.remove('active');
+    index = (i + slides.length) % slides.length;
+    const slide = slides[index];
+    slide.classList.add('active');
+    if (titleEl) titleEl.textContent = slide.dataset.title || '';
+    if (subEl) subEl.textContent = slide.dataset.sub || '';
+    if (counterEl) counterEl.textContent = pad(index);
+  }
+
+  function restartAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(() => show(index + 1), 5000);
+  }
+
+  hero.querySelector('.hero-prev')?.addEventListener('click', () => { show(index - 1); restartAutoplay(); });
+  hero.querySelector('.hero-next')?.addEventListener('click', () => { show(index + 1); restartAutoplay(); });
+
+  restartAutoplay();
+}
+
 // Mobile nav toggle
 const navToggle = document.querySelector('.nav-toggle');
 const mainNav = document.querySelector('.main-nav');
