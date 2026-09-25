@@ -274,6 +274,12 @@ section { padding: 100px 0; }
 }
 .shop-toolbar button.active, .shop-toolbar button:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
 
+/* ===== FAQ ===== */
+.faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 760px) { .faq-list { grid-template-columns: 1fr; } }
+.faq-item h3 { color: var(--cream); font-size: 20px; margin-bottom: 10px; }
+.faq-item p { color: #cfc9bb; max-width: 46ch; }
+
 /* ===== Contact page ===== */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
 @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }

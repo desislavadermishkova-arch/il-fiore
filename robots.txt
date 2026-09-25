@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://desislavadermishkova-arch.github.io/il-fiore/sitemap.xml
