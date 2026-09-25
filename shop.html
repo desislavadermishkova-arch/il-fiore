@@ -21,7 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=8">
 
 <script type="application/ld+json">
 {
@@ -59,7 +59,7 @@
   </div>
 </header>
 
-<div class="page-hero">
+<div class="page-hero bg-shop">
   <div class="container reveal">
     <span class="eyebrow">Available Now</span>
     <h1>The Collection</h1>
@@ -228,19 +228,23 @@
   </div>
 </footer>
 
-<div class="modal-overlay" id="work-modal">
-  <div class="modal-box">
-    <div class="placeholder-art"><img alt=""></div>
-    <div class="modal-info">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <div class="work-title"></div>
-      <div class="work-sub"></div>
-      <p class="modal-desc"></p>
-      <a href="contact.html" class="btn btn-solid work-inquire">Inquire About This Piece</a>
-    </div>
+<div class="viewer-overlay" id="work-modal">
+  <div class="viewer-topbar">
+    <span class="viewer-counter">01 / 09</span>
+    <button class="viewer-close" aria-label="Close">&times;</button>
+  </div>
+  <div class="viewer-stage">
+    <button class="viewer-nav viewer-prev" aria-label="Previous painting">&#8249;</button>
+    <img class="viewer-image" alt="">
+    <button class="viewer-nav viewer-next" aria-label="Next painting">&#8250;</button>
+  </div>
+  <div class="viewer-caption">
+    <div class="work-title"></div>
+    <div class="work-sub"></div>
+    <a href="contact.html" class="btn btn-solid work-inquire">Inquire About This Piece</a>
   </div>
 </div>
 
-<script src="js/main.js?v=7"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

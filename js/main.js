@@ -86,51 +86,59 @@ if (navToggle && mainNav) {
   );
 }
 
-// Work lightbox
-const modal = document.querySelector('#work-modal');
-if (modal) {
-  const modalArt = modal.querySelector('.placeholder-art');
-  const modalImg = modal.querySelector('.placeholder-art img');
-  const modalTitle = modal.querySelector('.work-title');
-  const modalSub = modal.querySelector('.work-sub');
-  const modalDesc = modal.querySelector('.modal-desc');
-  const modalInquire = modal.querySelector('.work-inquire');
+// Full-screen work viewer
+const viewer = document.querySelector('#work-modal');
+if (viewer) {
+  const works = Array.from(document.querySelectorAll('[data-work]'));
+  const viewerImg = viewer.querySelector('.viewer-image');
+  const viewerTitle = viewer.querySelector('.work-title');
+  const viewerSub = viewer.querySelector('.work-sub');
+  const viewerInquire = viewer.querySelector('.work-inquire');
+  const viewerCounter = viewer.querySelector('.viewer-counter');
+  let current = 0;
 
-  document.querySelectorAll('[data-work]').forEach(card => {
-    card.addEventListener('click', () => {
-      const title = card.dataset.title;
-      const sub = card.dataset.sub;
-      const desc = card.dataset.desc || '';
-      const hue = card.querySelector('.placeholder-art')?.dataset.hue;
-      const srcImg = card.querySelector('.placeholder-art img');
+  function render(i) {
+    current = (i + works.length) % works.length;
+    const card = works[current];
+    const srcImg = card.querySelector('.placeholder-art img');
 
-      modalArt.className = 'placeholder-art' + (hue ? ' hue-' + hue : '');
-      if (modalImg) {
-        if (srcImg) {
-          modalImg.src = srcImg.src;
-          modalImg.alt = srcImg.alt;
-          modalImg.style.display = '';
-        } else {
-          modalImg.style.display = 'none';
-        }
+    viewerImg.classList.remove('shown');
+    const swap = () => {
+      if (srcImg) {
+        viewerImg.src = srcImg.currentSrc || srcImg.src;
+        viewerImg.alt = srcImg.alt;
       }
-      modalTitle.textContent = title;
-      modalSub.textContent = sub;
-      modalDesc.textContent = desc;
-      if (modalInquire) modalInquire.href = 'contact.html?work=' + encodeURIComponent(title);
+      viewerTitle.textContent = card.dataset.title || '';
+      viewerSub.textContent = card.dataset.sub || '';
+      if (viewerInquire) viewerInquire.href = 'contact.html?work=' + encodeURIComponent(card.dataset.title || '');
+      if (viewerCounter) viewerCounter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(works.length).padStart(2, '0');
+      requestAnimationFrame(() => viewerImg.classList.add('shown'));
+    };
+    swap();
+  }
 
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  const closeModal = () => {
-    modal.classList.remove('open');
+  function openViewer(i) {
+    render(i);
+    viewer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeViewer() {
+    viewer.classList.remove('open');
     document.body.style.overflow = '';
-  };
-  modal.querySelector('.modal-close')?.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  }
+
+  works.forEach((card, i) => card.addEventListener('click', () => openViewer(i)));
+
+  viewer.querySelector('.viewer-close')?.addEventListener('click', closeViewer);
+  viewer.querySelector('.viewer-prev')?.addEventListener('click', () => render(current - 1));
+  viewer.querySelector('.viewer-next')?.addEventListener('click', () => render(current + 1));
+  viewer.addEventListener('click', e => { if (e.target === viewer) closeViewer(); });
+  document.addEventListener('keydown', e => {
+    if (!viewer.classList.contains('open')) return;
+    if (e.key === 'Escape') closeViewer();
+    if (e.key === 'ArrowLeft') render(current - 1);
+    if (e.key === 'ArrowRight') render(current + 1);
+  });
 }
 
 // Shop filters
