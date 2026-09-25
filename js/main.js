@@ -6,6 +6,7 @@ if (hero) {
   const subEl = hero.querySelector('.hero-sub-text');
   const counterEl = hero.querySelector('.hero-counter-current');
   const totalEl = hero.querySelector('.hero-counter-total');
+  const infoEl = hero.querySelector('.hero-info');
   let index = slides.findIndex(s => s.classList.contains('active'));
   if (index < 0) index = 0;
   let timer;
@@ -25,6 +26,7 @@ if (hero) {
     if (titleEl) titleEl.textContent = slide.dataset.title || '';
     if (subEl) subEl.textContent = slide.dataset.sub || '';
     if (counterEl) counterEl.textContent = pad(index);
+    if (infoEl && slide.dataset.color) infoEl.style.backgroundColor = slide.dataset.color;
 
     // Warm the cache for the next slide so its crossfade never shows blank
     const nextSlide = slides[(index + 1) % slides.length];
