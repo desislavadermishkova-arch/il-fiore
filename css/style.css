@@ -114,6 +114,7 @@ p.lede { font-size: 19px; color: #4a463f; max-width: 60ch; }
   min-height: 86vh;
   display: flex;
   overflow: hidden;
+  padding: 0;
 }
 
 .hero-info {
@@ -162,8 +163,12 @@ p.lede { font-size: 19px; color: #4a463f; max-width: 60ch; }
 
 @media (max-width: 700px) {
   .hero { flex-direction: column; min-height: auto; }
-  .hero-info { width: 100%; padding: 32px 24px; }
-  .hero-image { flex: none; height: 55vh; width: 100%; }
+  .hero-image { order: -1; flex: none; height: 58vh; width: 100%; }
+  .hero-info { width: 100%; padding: 24px 20px 28px; }
+  .hero-text { margin: 0; }
+  .hero-text h1.hero-title { font-size: clamp(30px, 8vw, 44px); }
+  .hero-counter { margin-bottom: 14px; }
+  .hero-nav-arrows { margin-top: 18px; }
 }
 
 /* ===== Sections ===== */
