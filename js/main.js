@@ -1,3 +1,33 @@
+// Scroll reveal
+const revealEls = Array.from(document.querySelectorAll('.reveal'));
+if (revealEls.length) {
+  const groups = new Map();
+  revealEls.forEach(el => {
+    const parent = el.parentElement;
+    if (!groups.has(parent)) groups.set(parent, []);
+    groups.get(parent).push(el);
+  });
+  groups.forEach(siblings => {
+    siblings.forEach((el, i) => {
+      el.style.transitionDelay = Math.min(i * 90, 360) + 'ms';
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
+}
+
 // Hero image carousel
 const hero = document.querySelector('#hero');
 if (hero) {
